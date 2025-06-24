@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weather App</title>
+    <!-- Your main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Font Awesome for weather icons -->
+    <!-- Corrected 'xintegrity' to 'integrity' -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlalDLn1mQY9h+fK29xftfD9t/K+O6Y2y1+I4c3W8S6fF2f2J6m4J0a+D8wB0B+C+F+C+F+P" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app-container">
+        <div class="left-panel">
+            <h1>🌤️ Weather Overview</h1>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Enter city name" />
+                <button onclick="getWeather()">Get Weather</button>
+            </div>
+
+            <!-- Current Weather Info Section -->
+            <div id="weatherInfo" class="weather-info">
+                <!-- Data will be dynamically injected here by script.js -->
+                <!-- Initial placeholder content, updated by JavaScript -->
+                <div class="city-name">Loading...</div>
+
+                <div class="main-weather-display">
+                    <i class="weather-icon fas fa-sun"></i> <!-- Placeholder icon, updated by JS -->
+                    <div class="temperature">--°C</div>
+                </div>
+
+                <div class="weather-description">Loading weather...</div>
+
+                <div class="current-weather-details">
+                    <div class="detail-item">
+                        <span class="emoji">🌡️</span> Temp: <span id="currentTemp">--°C</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="emoji">💧</span> Humidity: <span id="currentHumidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="emoji">💨</span> Wind: <span id="currentWind">-- m/s</span>
+                    </div>
+                </div>
+
+                <button class="toggle-temp-btn" onclick="toggleTemperatureUnit()">Toggle °C/°F</button>
+            </div>
+
+            <!-- 5-Day Forecast Section -->
+            <div id="forecast" class="forecast-container">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-items-wrapper">
+                    <!-- Forecast items go here -->
+                    <!-- These will be dynamically populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div id="map" class="map-box"></div>
+            <canvas id="tempChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet JS for maps -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
